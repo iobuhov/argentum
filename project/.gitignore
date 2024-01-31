@@ -1,0 +1,9 @@
+*
+!LumixUI.mpr
+!project-settings.user.json
+
+!themesource/
+!themesource/lumixui/
+!themesource/lumixui/web/
+!themesource/lumixui/web/main.scss
+!themesource/lumixui/web/design-properties.json
