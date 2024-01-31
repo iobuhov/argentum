@@ -1,0 +1,15 @@
+{
+  "name": "lumix-core-css",
+  "version": "0.1.0",
+  "description": "Lumix core css",
+  "license": "MIT",
+  "dependencies": {
+    "@radix-ui/colors": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.14",
+    "@types/shelljs": "^0.8.15",
+    "shelljs": "^0.8.5",
+    "tsx": "^4.7.0"
+  }
+}
