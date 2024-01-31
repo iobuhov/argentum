@@ -1,16 +1,37 @@
-import * as path from "node:path";
+import * as cpx from "cpx";
 import * as sh from "shelljs";
+import {
+    colorsPath,
+    sourcePath,
+    themePath,
+    projectPath,
+    useWatch
+} from "./vars";
 
-let projectPath =
-    sh.env.MX_PROJECT_PATH ?? path.join(sh.pwd().toString(), "../../project");
-let targetPath = path.join(projectPath, "themesource/lumixui/web");
-let colorsPath = path.join(targetPath, "@radix-ui/colors");
+const log = (...args: any[]) => console.log("[build]", ...args);
 
-sh.rm("-rf", targetPath);
+log("project path:", projectPath);
 
-sh.mkdir("-p", targetPath);
+sh.rm("-rf", sourcePath);
+
+sh.mkdir("-p", themePath);
+sh.mkdir("-p", sourcePath);
 sh.mkdir("-p", colorsPath);
 
+log("copy @radix-ui/colors");
 // NOTE: keep `-L` flag when you copy from node_modules
 sh.cp("-RL", "node_modules/@radix-ui/colors/*", colorsPath);
-sh.cp("-R", "src/*", targetPath);
+
+log("copy settings.json");
+sh.cp("-fu", "theme/settings.json", themePath);
+
+if (useWatch) {
+    cpx.watch("src/**/*.scss", sourcePath, { clean: true })
+        .on("watch-ready", () => {
+            log("watching src...");
+        })
+        .on("copy", (e) => log(`copy ${e.srcPath} => ${e.dstPath}`));
+} else {
+    log("copy src files");
+    sh.cp("-R", "src/*", sourcePath);
+}
