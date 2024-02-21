@@ -1,7 +1,7 @@
 {
     "name": "@xxx/argentum-ui",
     "version": "0.1.0-alpha.0",
-    "license": "MIT",
+    "license": "Apache-2.0",
     "type": "module",
     "exports": {
         "./*": "./dist/*.js"
@@ -34,7 +34,7 @@
         "typescript": "^5.3.3"
     },
     "scripts": {
-        "build:es": "esbuild ./primitives/**/* --outdir=dist --outbase=primitives",
+        "build:es": "esbuild ./primitives/**/* ./primitives/* --outdir=dist --outbase=primitives --log-level=info",
         "build": "pnpm build:es && tsc",
         "dev:es": "pnpm build:es --watch",
         "dev:ts": "tsc --watch",
