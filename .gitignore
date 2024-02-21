@@ -1,2 +1,12 @@
 node_modules
 dist
+*storybook.log
+.DS_Store
+.idea
+.vscode
+.env
+*.log
+*.bak
+*.launch
+mxproject
+coverage
