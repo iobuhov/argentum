@@ -1,10 +1,10 @@
-import * as React from "react";
+import { createElement } from "react";
 
 export function Checkbox(props: { label: string }) {
     return (
-        <label htmlFor="cbx">
+        <label htmlFor="cbxx">
             {props.label}
-            <input id="cbx" type="checkbox" />
+            <input id="cbxx" type="checkbox" />
         </label>
     );
 }

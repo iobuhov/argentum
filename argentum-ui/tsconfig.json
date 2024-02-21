@@ -1,0 +1,35 @@
+{
+    "include": ["./primitives/**/*"],
+    "compilerOptions": {
+        "outDir": "dist",
+        "rootDir": "primitives",
+
+        "declaration": true,
+        "declarationMap": true,
+        "emitDeclarationOnly": true,
+        "noEmitOnError": true,
+        "sourceMap": true,
+        "module": "ESNext",
+        "target": "ES2022",
+        "lib": ["ES2021", "dom"],
+        "moduleResolution": "Bundler",
+        "noLib": false,
+        "forceConsistentCasingInFileNames": true,
+        "noFallthroughCasesInSwitch": true,
+        "strict": true,
+        "strictFunctionTypes": false,
+        "skipLibCheck": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "jsx": "react",
+        "jsxFactory": "createElement",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "useUnknownInCatchVariables": false,
+        "exactOptionalPropertyTypes": false,
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "isolatedModules": true,
+        "preserveWatchOutput": true
+    }
+}
