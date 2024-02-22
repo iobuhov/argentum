@@ -4,6 +4,6 @@ import { CheckboxPreviewProps } from "../typings/CheckboxProps";
 
 
 export function preview(_props: CheckboxPreviewProps): ReactElement {
-    return <Checkbox label="Fun" />;
+    return <Checkbox label="Fun" useContainer={_props.useContainer} />;
 }
 

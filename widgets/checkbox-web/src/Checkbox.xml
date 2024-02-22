@@ -16,5 +16,11 @@
                 </attributeTypes>
             </property>
         </propertyGroup>
+        <propertyGroup caption="Advanced">
+            <property key="useContainer" type="boolean" defaultValue="true">
+                <caption>Use container</caption>
+                <description />
+            </property>
+        </propertyGroup>
     </properties>
 </widget>

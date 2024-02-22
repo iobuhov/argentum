@@ -12,6 +12,7 @@ export interface CheckboxContainerProps {
     style?: CSSProperties;
     tabIndex?: number;
     valueAttribute: EditableValue<boolean>;
+    useContainer: boolean;
 }
 
 export interface CheckboxPreviewProps {
@@ -24,4 +25,5 @@ export interface CheckboxPreviewProps {
     styleObject?: CSSProperties;
     readOnly: boolean;
     valueAttribute: string;
+    useContainer: boolean;
 }

@@ -3,7 +3,8 @@
     "version": "0.1.0",
     "license": "Apache-2.0",
     "scripts": {
-        "build": "tsx ./scripts/build.ts"
+        "build": "tsx ./scripts/build.ts",
+        "dev": "tsx ./scripts/build.ts --watch"
     },
     "dependencies": {
         "@xxx/argentum-ui": "workspace:*",
