@@ -29,11 +29,8 @@
     "@types/big.js": "^6.0.2"
   },
   "dependencies": {
-    "@xxx/argentum-core": "workspace:*",
+    "@xxx/argentum-ui": "workspace:*",
     "classnames": "^2.2.6"
-  },
-  "resolutions": {
-    "react": "18.2.0"
   },
   "overrides": {
     "react": "18.2.0"

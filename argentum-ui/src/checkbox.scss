@@ -1,9 +1,8 @@
-.ag-CheckboxRoot {
+:where(.ag-CheckboxRoot) {
     display: flex;
     align-items: center;
-    gap: 8px;
 }
 
-.ag-CheckboxIndicator {
+:where(.ag-CheckboxIndicator) {
     color: mediumpurple;
 }
