@@ -1,6 +1,14 @@
 :where(.ag-CheckboxRoot) {
+    margin: 60px;
     display: flex;
     align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
+        Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    text-transform: uppercase;
+}
+
+.ag-CheckboxRoot input {
+    margin: 8px;
 }
 
 :where(.ag-CheckboxIndicator) {

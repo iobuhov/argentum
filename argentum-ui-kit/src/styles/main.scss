@@ -1,6 +1,7 @@
 /* Please, keep paths relative */
-@import "@xxx/argentum-ui/checkbox/Checkbox";
+@use "@xxx/argentum-ui/checkbox/Checkbox";
 
 body {
     all: unset;
+    background-color: azure;
 }

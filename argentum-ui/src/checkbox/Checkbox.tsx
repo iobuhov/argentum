@@ -1,10 +1,21 @@
-import { createElement } from "react";
+import { createElement, Fragment } from "react";
 
-export function Checkbox(props: { label: string }) {
+export function Checkbox(props: {
+    label: string;
+    checked?: boolean;
+    onChange?: React.ChangeEventHandler<HTMLInputElement>;
+}) {
     return (
-        <label htmlFor="cbxx" className="ag-CheckboxRoot">
-            {props.label}
-            <input id="cbxx" type="checkbox" />
-        </label>
+        <Fragment>
+            <input
+                id="cbxx"
+                type="checkbox"
+                checked={props.checked}
+                onChange={props.onChange}
+            />
+            <label htmlFor="cbxx" className="ag-CheckboxRoot">
+                {props.label}
+            </label>
+        </Fragment>
     );
 }

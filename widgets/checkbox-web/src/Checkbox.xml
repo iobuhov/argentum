@@ -13,7 +13,6 @@
                 <description />
                 <attributeTypes>
                     <attributeType name="Boolean" />
-                    <attributeType name="Enum" />
                 </attributeTypes>
             </property>
         </propertyGroup>

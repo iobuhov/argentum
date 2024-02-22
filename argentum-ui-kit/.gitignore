@@ -1,0 +1,6 @@
+project/*
+!project/ArgentumUIKit.mpr
+!project/project-settings-user.json
+!project/__required-files__/
+!project/__required-files__/widgets/
+!project/__required-files__/widgets/*
