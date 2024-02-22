@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Checkbox } from "../src/checkbox";
-import "../src/checkbox.scss";
+import { Checkbox } from "./Checkbox";
+import "./Checkbox.scss";
 
 const meta = {
     title: "Example/Checkbox",
