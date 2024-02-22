@@ -1,4 +1,8 @@
 {
-  "name": "lumix-ui",
-  "license": "MIT"
+    "name": "argentum-ui-root",
+    "private": true,
+    "engines": {
+        "node": ">=18.17.0",
+        "pnpm": "~8.15.1"
+    }
 }
