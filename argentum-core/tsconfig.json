@@ -1,8 +1,8 @@
 {
-    "include": ["./primitives/**/*"],
+    "include": ["./src/**/*"],
     "compilerOptions": {
         "outDir": "dist",
-        "rootDir": "primitives",
+        "rootDir": "src",
 
         "declaration": true,
         "declarationMap": true,

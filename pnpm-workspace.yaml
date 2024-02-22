@@ -1,4 +1,5 @@
 packages:
     - "argentum-ui"
+    - "argentum-core"
     - "packages/*"
     - "widgets/*"
