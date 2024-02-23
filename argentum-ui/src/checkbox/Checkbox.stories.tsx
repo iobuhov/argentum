@@ -1,5 +1,7 @@
+import { createElement } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Checkbox } from "./Checkbox";
+import { CheckboxIndicator } from "./CheckboxIndicator";
 import "./Checkbox.scss";
 
 const meta = {
@@ -13,7 +15,14 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-    args: {
-        label: "Awesome"
+    render() {
+        return (
+            <div dir="ltr">
+                <Checkbox>
+                    <CheckboxIndicator />
+                    "Awesome"
+                </Checkbox>
+            </div>
+        );
     }
 };

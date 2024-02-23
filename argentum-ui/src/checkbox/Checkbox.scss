@@ -1,12 +1,88 @@
-:where(.ag-CheckboxRoot) {
-    margin: 0;
+.ag-CheckboxIndicator {
+    aspect-ratio: 1 / 1;
+    width: 1.15rem;
+    height: 1.15rem;
+    border: 2px solid var(--border-color);
+    border-radius: 3px;
+    transition: all 200ms, outline 0ms, outline-offset 0ms;
     display: flex;
     align-items: center;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
-        Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-    text-transform: uppercase;
+    justify-content: center;
+
+    svg {
+        width: 0.9rem;
+        height: 0.9rem;
+        fill: none;
+        stroke: var(--checkmark-color);
+        stroke-width: 4px;
+        stroke-dasharray: 22px;
+        stroke-dashoffset: 66;
+        transition: all 200ms;
+        :where(rect) {
+            display: none;
+        }
+    }
 }
 
-:where(.ag-CheckboxIndicator) {
-    color: mediumpurple;
+.ag-Checkbox {
+    --focus-ring-color: rgb(0, 88, 229);
+    --selected-color: var(--highlight-background, rgb(0, 157, 255));
+    --selected-color-pressed: var(
+        --highlight-background-pressed,
+        rgb(0, 120, 176)
+    );
+    --checkmark-color: var(--highlight-foreground, rgb(255, 255, 255));
+    --text-color: black;
+    --border-color: black;
+
+    display: flex;
+    align-items: center;
+    gap: 0.571rem;
+    font-size: 1.143rem;
+    color: var(--text-color);
+    forced-color-adjust: none;
+
+    &[data-pressed] .ag-CheckboxIndicator {
+        border-color: var(--border-color-pressed, gray);
+    }
+
+    &[data-focus-visible] .ag-CheckboxIndicator {
+        outline: 2px solid var(--focus-ring-color, rgb(12, 117, 222));
+        outline-offset: 2px;
+    }
+
+    &[data-selected],
+    &[data-indeterminate] {
+        .ag-CheckboxIndicator {
+            border-color: var(--selected-color);
+            background: var(--selected-color);
+        }
+
+        &[data-pressed] .ag-CheckboxIndicator {
+            border-color: var(--selected-color-pressed);
+            background: var(--selected-color-pressed);
+        }
+
+        svg {
+            stroke-dashoffset: 44;
+        }
+    }
+
+    &[data-indeterminate] {
+        svg {
+            stroke: none;
+            fill: var(--checkmark-color);
+            rect {
+                display: initial;
+            }
+            polyline {
+                display: none;
+            }
+        }
+    }
+}
+
+/** States  */
+.ag-fd-row-reverse {
+    flex-direction: row-reverse;
 }

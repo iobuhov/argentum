@@ -23,6 +23,7 @@
         "noUnusedParameters": true,
         "jsx": "react",
         "jsxFactory": "createElement",
+        "jsxFragmentFactory": "Fragment",
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "useUnknownInCatchVariables": false,
