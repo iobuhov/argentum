@@ -1,0 +1,37 @@
+{
+  "name": "@mendix/argentumuikit-checkbox-group",
+  "widgetName": "CheckboxGroup",
+  "version": "0.1.0",
+  "description": "Checkbox group widget",
+  "copyright": "© Mendix Technology BV 2022. All rights reserved.",
+  "engines": {
+    "node": ">=16"
+  },
+  "license": "Apache-2.0",
+  "config": {
+    "projectPath": "./tests/testProject",
+    "mendixHost": "http://localhost:8080",
+    "developmentPort": 3000
+  },
+  "packagePath": "com.mendix.argentumuikit",
+  "scripts": {
+    "start": "pluggable-widgets-tools start:server",
+    "dev": "pluggable-widgets-tools start:web",
+    "build": "pluggable-widgets-tools build:web",
+    "lint": "pluggable-widgets-tools lint",
+    "lint:fix": "pluggable-widgets-tools lint:fix",
+    "prerelease": "npm run lint",
+    "release": "pluggable-widgets-tools release:web"
+  },
+  "devDependencies": {
+    "@mendix/pluggable-widgets-tools": "10.0.1",
+    "@types/big.js": "^6.0.2"
+  },
+  "dependencies": {
+    "@xxx/argentum-ui": "workspace:*",
+    "classnames": "^2.2.6"
+  },
+  "overrides": {
+    "react": "18.2.0"
+  }
+}
