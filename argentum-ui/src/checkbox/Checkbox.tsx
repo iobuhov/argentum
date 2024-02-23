@@ -1,32 +1,30 @@
-import { createElement, Fragment } from "react";
+import { createElement } from "react";
+import { Checkbox as RACheckbox } from "react-aria-components";
 
-export function Checkbox(props: {
+export function Checkbox(_props: {
     label: string;
     checked?: boolean;
     useContainer?: boolean;
     onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }) {
     return (
-        <Container asFragment={!props.useContainer}>
-            <input
-                id="cbxx"
-                type="checkbox"
-                checked={props.checked}
-                onChange={props.onChange}
-            />
-            <label htmlFor="cbxx" className="ag-CheckboxRoot">
-                {props.label}
-            </label>
-        </Container>
+        <RACheckbox>
+            <div className="checkbox">
+                <svg viewBox="0 0 18 18" aria-hidden="true">
+                    <polyline points="1 9 7 14 15 4" />
+                </svg>
+            </div>
+            Unsubscribe
+        </RACheckbox>
     );
 }
 
-function Container(
-    props: React.PropsWithChildren<{ asFragment: boolean }>
-): React.ReactElement {
-    if (props.asFragment) {
-        return <Fragment>{props.children}</Fragment>;
-    }
+// function Container(
+//     props: React.PropsWithChildren<{ asFragment: boolean }>
+// ): React.ReactElement {
+//     if (props.asFragment) {
+//         return <Fragment>{props.children}</Fragment>;
+//     }
 
-    return <div className="ag-FormGroup">{props.children}</div>;
-}
+//     return <div className="ag-FormGroup">{props.children}</div>;
+// }

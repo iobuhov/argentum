@@ -46,5 +46,10 @@
         "lint:ts": "tsc",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build"
+    },
+    "dependencies": {
+        "@react-aria/utils": "^3.23.2",
+        "react-aria": "^3.32.1",
+        "react-stately": "^3.30.1"
     }
 }
