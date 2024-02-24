@@ -7,15 +7,15 @@
         "dev": "tsx ./scripts/build.ts --watch"
     },
     "dependencies": {
-        "@xxx/argentum-ui": "workspace:*",
-        "checkbox-web": "workspace:*"
-    },
-    "devDependencies": {
-        "@types/cpx": "^1.5.5",
+        "@mendix/argentumuikit-checkbox-group": "workspace:*",
+        "@types/glob-watcher": "^5.0.5",
         "@types/node": "^20.11.14",
         "@types/shelljs": "^0.8.15",
+        "@xxx/argentum-ui": "workspace:*",
         "ansi-colors": "^4.1.3",
-        "cpx": "^1.5.0",
+        "checkbox-web": "workspace:*",
+        "cpy": "^11.0.0",
+        "glob-watcher": "^6.0.0",
         "shelljs": "^0.8.5",
         "tsx": "^4.7.0"
     }
