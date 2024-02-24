@@ -1,5 +1,5 @@
 import * as color from "ansi-colors";
-import cpy from "cpy";
+import cpy, { type Options } from "cpy";
 import watch from "glob-watcher";
 import { relative } from "node:path";
 import * as sh from "shelljs";
@@ -7,6 +7,9 @@ import { dirs, useWatch } from "./build.config";
 
 const log = (...args: any[]) => {
     console.log(...args);
+};
+const defaultCpyOptions: Options = {
+    overwrite: true
 };
 const accent = color.blue;
 const caution = color.cyan;
@@ -90,14 +93,19 @@ function copyOnChange(src: string, dst: string): void {
 }
 
 async function copy(
-    ...params: Parameters<typeof cpy>
+    src: Parameters<typeof cpy>[0],
+    dst: Parameters<typeof cpy>[1],
+    options?: Parameters<typeof cpy>[2]
 ): Promise<[string, string][]> {
     const copied = new Map();
-    await cpy(...params).on("progress", ({ sourcePath, destinationPath }) => {
-        if (!copied.has(sourcePath)) {
-            copied.set(sourcePath, destinationPath);
+    await cpy(src, dst, { ...defaultCpyOptions, ...options }).on(
+        "progress",
+        ({ sourcePath, destinationPath }) => {
+            if (!copied.has(sourcePath)) {
+                copied.set(sourcePath, destinationPath);
+            }
         }
-    });
+    );
 
     const result = Array.from(copied.entries());
     result.forEach((ent) => printEntry(...ent));
