@@ -1,17 +1,29 @@
-import * as cpx from "cpx";
+import * as color from "ansi-colors";
+import cpy from "cpy";
+import watch from "glob-watcher";
+import { relative } from "node:path";
 import * as sh from "shelljs";
 import { dirs, useWatch } from "./build.config";
-import * as color from "ansi-colors";
 
-const log = (...args: any[]) =>
-    console.log(color.bold.bgBlue(" build "), ...args);
+const log = (...args: any[]) => {
+    console.log(...args);
+};
+const accent = color.blue;
+const caution = color.cyan;
 
-process.on("SIGINT", () => process.exit(0));
+const running: { close: () => Promise<void> | void }[] = [];
+process.on("SIGINT", async () => {
+    for (const watcher of running) {
+        await watcher.close();
+    }
+});
 
 main();
 
 async function main() {
-    log(color.bold.blue("Project path:"));
+    log(accent.bold("Project path:"));
+    log();
+
     log(dirs.project);
     log();
 
@@ -23,49 +35,82 @@ async function main() {
     sh.mkdir("-p", dirs.theme);
     sh.mkdir("-p", dirs.widgets);
 
-    // log("copy @radix-ui/colors");
-    // sh.cp("-RL", "node_modules/@radix-ui/colors/*", colorsPath);
-    const files = [
-        ["theme/settings.json", dirs.theme],
-        ["node_modules/checkbox-web/dist/*/*.mpk", dirs.widgets],
-        ["project/__required-files__/widgets/*", dirs.widgets]
-    ];
+    log(accent.bold("Assets:"));
+    log();
 
-    // NOTE: keep `-L` flag when you copy from node_modules
-    log("Copy assets");
-    for (const [src, dst] of files) {
-        log(color.gray(src));
-        sh.cp("-fuL", src, dst);
+    const assets = [["theme/settings.json", dirs.theme]];
+
+    for (const [src, dst] of assets) {
+        await copy(src, dst);
     }
     log();
 
-    await Promise.all([
-        copy(
-            "node_modules/@xxx/argentum-ui/dist/**/*.scss",
-            dirs.scss_argentum,
-            useWatch
-        ),
-        copy("src/styles/*.scss", dirs.themesource, useWatch)
-    ]);
+    log(accent.bold("Widgets:"));
+    log();
 
-    process.exit(0);
+    const widgets = [
+        ["node_modules/checkbox-web/dist/*/*.mpk", dirs.widgets],
+        [
+            "node_modules/@mendix/argentumuikit-checkbox-group/dist/*/*.mpk",
+            dirs.widgets
+        ],
+        ["project/__required-files__/widgets/*", dirs.widgets]
+    ];
+
+    for (const [src, dst] of widgets) {
+        await copy(src, dst, { flat: true });
+    }
+    log();
+
+    log(accent.bold("Styles:"));
+    log();
+
+    const argentumScss = [
+        "node_modules/@xxx/argentum-ui/dist/**/*.scss",
+        dirs.scss_argentum
+    ] as const;
+    const srcScss = ["src/styles/*.scss", dirs.themesource] as const;
+    await copy(...argentumScss);
+    await copy(...srcScss);
+
+    if (useWatch) {
+        log();
+        copyOnChange(...argentumScss);
+        copyOnChange(...srcScss);
+    }
 }
 
-function copy(glob: string, dst: string, useWatch = false): Promise<void> {
-    let finish: () => void;
-    const lock = new Promise<void>((res) => (finish = res));
-    if (useWatch) {
-        log("Start watching", color.magenta(glob));
+function copyOnChange(src: string, dst: string): void {
+    log("Watching", caution(src));
+    const w = watch([src]);
+    running.push(w);
+    w.on("change", async (path) => {
+        copy(path, dst);
+    });
+}
+
+async function copy(
+    ...params: Parameters<typeof cpy>
+): Promise<[string, string][]> {
+    const copied = new Map();
+    await cpy(...params).on("progress", ({ sourcePath, destinationPath }) => {
+        if (!copied.has(sourcePath)) {
+            copied.set(sourcePath, destinationPath);
+        }
+    });
+
+    const result = Array.from(copied.entries());
+    result.forEach((ent) => printEntry(...ent));
+    return result;
+}
+
+function printEntry(src: string, dst: string): void {
+    if (process.env.DEBUG) {
+        log(color.green("copy"), relPath(src));
     }
-    cpx.watch(glob, dst, { clean: true })
-        .on("copy", (e) => {
-            log(color.green("copy"), color.gray(`${e.srcPath}`));
-            log(color.green("  =>"), color.gray(e.dstPath));
-        })
-        .on("watch-ready", () => {
-            if (!useWatch) {
-                finish();
-            }
-        });
-    return lock;
+    log(accent(">"), relPath(dst));
+}
+
+function relPath(path: string): string {
+    return relative(process.cwd(), path);
 }
