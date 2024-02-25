@@ -73,12 +73,15 @@ export const widgets = [
 ];
 
 // This files is for preview only and should never be included in module.
-export const themeModuleFiles = [
+export const themeModuleStyles = {
+    base: "node_modules/@mendix/argentum-theme-radix/themesource/",
+    src: "node_modules/@mendix/argentum-theme-radix/themesource/**/*",
+    dst: join(projectPath, "themesource", themeModuleName, "web")
+};
+// This files is for preview only and should never be included in module.
+export const themeModuleAssets = [
     // Themesource
-    {
-        src: "node_modules/@mendix/argentum-theme-radix/themesource/**/*",
-        dst: join(projectPath, "themesource", themeModuleName, "web")
-    },
+    themeModuleStyles,
     // Public assets
     {
         src: "node_modules/@mendix/argentum-theme-radix/public/**",

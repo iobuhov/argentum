@@ -1,5 +1,6 @@
 import { pkg } from "./config";
 import { copy, sh, log } from "./common";
+import designProps from "../design-properties/main";
 
 main();
 async function main(): Promise<void> {
@@ -13,5 +14,13 @@ async function main(): Promise<void> {
             `${pkg.radixui_colors.src}/*.css`
         ],
         pkg.radixui_colors.dst
+    );
+    log();
+
+    log("Create design-properties.json");
+    log();
+
+    new sh.ShellString(JSON.stringify(designProps, null, 2)).to(
+        pkg.designPropsDst
     );
 }

@@ -15,6 +15,11 @@
                     <attributeType name="Boolean" />
                 </attributeTypes>
             </property>
+            <property key="label" type="expression" defaultValue="true">
+                <caption>Label</caption>
+                <description />
+                <returnType type="String" />
+            </property>
         </propertyGroup>
         <propertyGroup caption="Advanced">
             <property key="useContainer" type="boolean" defaultValue="true">

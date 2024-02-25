@@ -1,13 +1,14 @@
 .ag-Checkbox {
     --focus-ring-color: var(--cyan-8);
     --selected-color: var(--cyan-9);
-    --selected-color-pressed: var(--cyan-8);
+    --selected-color-pressed: var(--cyan-7);
     --checkmark-color: white;
     --border-color: var(--gray-a7);
-    --border-color-pressed: var(--gray-7);
+    --border-color-pressed: var(--gray-8);
 
     display: flex;
     align-items: center;
+
     gap: var(--space-2);
     font-size: 1.143rem;
     forced-color-adjust: none;
@@ -54,11 +55,14 @@
 }
 
 .ag-CheckboxIndicator {
-    --animation-t: 250ms;
+    --animation-t: 200ms;
+    --checkbox-size: var(--space-4);
+    --checkbox-indicator-size: calc(10px * var(--scaling));
     aspect-ratio: 1 / 1;
+    border-radius: var(--radius-1);
     width: var(--checkbox-size, 1.15rem);
     height: var(--checkbox-size, 1.15rem);
-    border: 2px solid var(--gray-6);
+    border: 2px solid var(--border-color);
     transition: all var(--animation-t), outline 0ms, outline-offset 0ms;
     display: flex;
     align-items: center;
@@ -81,17 +85,12 @@
 
 // Sizes
 .ag-Checkbox {
-    &:where(.size-1) .ag-CheckboxIndicator {
+    &:where(.auk-size-1) .ag-CheckboxIndicator {
         --checkbox-size: calc(var(--space-4) * 0.875);
         --checkbox-indicator-size: calc(9px * var(--scaling));
         border-radius: calc(var(--radius-1) * 0.875);
     }
-    &:where(.size-2) .ag-CheckboxIndicator {
-        --checkbox-size: var(--space-4);
-        --checkbox-indicator-size: calc(10px * var(--scaling));
-        border-radius: var(--radius-1);
-    }
-    &:where(.size-3) .ag-CheckboxIndicator {
+    &:where(.auk-size-3) .ag-CheckboxIndicator {
         --checkbox-size: calc(var(--space-4) * 1.25);
         --checkbox-indicator-size: calc(12px * var(--scaling));
         border-radius: calc(var(--radius-1) * 1.25);

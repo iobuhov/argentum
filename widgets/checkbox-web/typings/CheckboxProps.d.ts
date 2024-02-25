@@ -4,7 +4,7 @@
  * @author Mendix Widgets Framework Team
  */
 import { CSSProperties } from "react";
-import { EditableValue } from "mendix";
+import { DynamicValue, EditableValue } from "mendix";
 
 export interface CheckboxContainerProps {
     name: string;
@@ -12,6 +12,7 @@ export interface CheckboxContainerProps {
     style?: CSSProperties;
     tabIndex?: number;
     valueAttribute: EditableValue<boolean>;
+    label: DynamicValue<string>;
     useContainer: boolean;
 }
 
@@ -25,5 +26,6 @@ export interface CheckboxPreviewProps {
     styleObject?: CSSProperties;
     readOnly: boolean;
     valueAttribute: string;
+    label: string;
     useContainer: boolean;
 }

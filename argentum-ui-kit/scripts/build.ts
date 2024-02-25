@@ -1,16 +1,18 @@
 import * as color from "ansi-colors";
 import cpy, { type Options } from "cpy";
 import watch from "glob-watcher";
-import { relative } from "node:path";
+import { relative, join, dirname } from "node:path";
 import * as sh from "shelljs";
+
 import {
     setup,
     cleanup,
     project,
     widgets,
     uikitStyles,
-    themeModuleFiles,
-    stylesMain
+    themeModuleAssets,
+    themeModuleStyles,
+    useWatch
 } from "./build.config";
 
 const log = (...args: any[]) => {
@@ -44,12 +46,7 @@ async function main() {
     log(accent.bold("UI Kit styles:"));
     log();
 
-    await copy(stylesMain.src, stylesMain.dst);
     await copy(uikitStyles.src, uikitStyles.dst);
-    // const assets = [["theme/settings.json", dirs.theme]];
-
-    // for (const [src, dst] of assets) {
-    // }
     log();
 
     log(accent.bold("Widgets:"));
@@ -63,7 +60,7 @@ async function main() {
     log(accent.bold("Theme files:"));
     log();
 
-    for (const { src, dst } of themeModuleFiles) {
+    for (const { src, dst } of themeModuleAssets) {
         await copy(src, dst);
     }
     log();
@@ -75,19 +72,24 @@ async function main() {
     // await copy(...argentumScss);
     // await copy(...srcScss);
 
-    // if (useWatch) {
-    //     log();
-    //     copyOnChange(...argentumScss);
-    //     copyOnChange(...srcScss);
-    // }
+    if (useWatch) {
+        log();
+        copyOnChange(
+            themeModuleStyles.src,
+            themeModuleStyles.dst,
+            themeModuleStyles.base
+        );
+        // copyOnChange(...srcScss);
+    }
 }
 
-function copyOnChange(src: string, dst: string): void {
+function copyOnChange(src: string, dst: string, base: string): void {
     log("Watching", caution(src));
     const w = watch([src]);
     running.push(w);
     w.on("change", async (path) => {
-        copy(path, dst);
+        const relativeDir = join(dst, relative(base, dirname(path)));
+        copy(path, relativeDir);
     });
 }
 

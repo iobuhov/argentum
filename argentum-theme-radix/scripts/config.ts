@@ -19,5 +19,10 @@ export const pkg = {
     radixui_colors: {
         src: join(packageRootPath, "node_modules", "@radix-ui", "colors"),
         dst: join(packageRootPath, "themesource", "@radix-ui", "colors")
-    }
+    },
+    designPropsDst: join(
+        packageRootPath,
+        "themesource",
+        "design-properties.json"
+    )
 };

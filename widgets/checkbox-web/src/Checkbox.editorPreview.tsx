@@ -1,9 +1,11 @@
-import { Checkbox } from "@xxx/argentum-ui/checkbox";
+import { Checkbox, CheckboxIndicator } from "@xxx/argentum-ui/checkbox";
 import { ReactElement, createElement } from "react";
 import { CheckboxPreviewProps } from "../typings/CheckboxProps";
 
 
-export function preview(_: CheckboxPreviewProps): ReactElement {
-    return <Checkbox />
+export function preview(props: CheckboxPreviewProps): ReactElement {
+    return (
+        <Checkbox isSelected={false} className={props.class}><CheckboxIndicator />{props.label}</Checkbox>
+    )
 }
 
