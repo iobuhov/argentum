@@ -2,7 +2,6 @@ import { createElement } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Checkbox } from "./Checkbox";
 import { CheckboxIndicator } from "./CheckboxIndicator";
-import "./Checkbox.scss";
 
 const meta = {
     title: "Example/Checkbox",
@@ -20,7 +19,7 @@ export const Default: Story = {
             <div dir="ltr">
                 <Checkbox>
                     <CheckboxIndicator />
-                    "Awesome"
+                    Awesome
                 </Checkbox>
             </div>
         );

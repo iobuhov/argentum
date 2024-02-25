@@ -37,18 +37,17 @@
     },
     "scripts": {
         "build:es": "node scripts/build-es.cjs",
-        "build:sc": "cpx --verbose 'src/**/*.scss' dist",
         "build:ts": "tsc --build --verbose",
         "build": "concurrently -c 'auto' 'pnpm:build:*'",
         "dev:es": "node scripts/build-es.cjs --watch",
         "dev:ts": "tsc --watch",
-        "dev:sc": "cpx --verbose --watch 'src/**/*.scss' dist",
         "dev": "concurrently --raw pnpm:dev:*",
         "lint:ts": "tsc",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build"
     },
     "dependencies": {
+        "@mendix/argentum-theme-radix": "workspace:*",
         "@react-aria/utils": "^3.23.2",
         "@react-types/shared": "^3.22.1",
         "react-aria": "^3.32.1",

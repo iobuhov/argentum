@@ -1,0 +1,8 @@
+// Don't change this file. Any changes you make here will be lost the next time the module is upgraded.
+// To make your changes permanent, copy the properties you want override into
+// `theme/web/custom-colors-dark.css` and set the desired value.
+
+.dark,
+.dark-theme {
+    --color-page-background: var(--gray-1);
+}
