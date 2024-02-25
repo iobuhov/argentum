@@ -1,0 +1,29 @@
+:root {
+    --sky-9-contrast: #1c2024; /* light mode slate 12 */
+}
+:root,
+.light,
+.light-theme {
+    --sky-surface: #eef9fdcc;
+
+    @supports (color: color(display-p3 1 1 1)) {
+        @media (color-gamut: p3) {
+            & {
+                --sky-surface: color(display-p3 0.9412 0.9765 0.9843 / 0.8);
+            }
+        }
+    }
+}
+
+.dark,
+.dark-theme {
+    --sky-surface: #13233b80;
+
+    @supports (color: color(display-p3 1 1 1)) {
+        @media (color-gamut: p3) {
+            & {
+                --sky-surface: color(display-p3 0.0863 0.1333 0.2196 / 0.5);
+            }
+        }
+    }
+}

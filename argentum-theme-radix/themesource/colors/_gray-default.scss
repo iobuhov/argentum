@@ -1,0 +1,17 @@
+@use "../@radix-ui/colors/gray";
+@use "../@radix-ui/colors/gray-dark";
+@use "../@radix-ui/colors/gray-alpha";
+@use "../@radix-ui/colors/gray-dark-alpha";
+
+.dark,
+.dark-theme {
+    --gray-2-translucent: #1d1d1db3;
+
+    @supports (color: color(display-p3 1 1 1)) {
+        @media (color-gamut: p3) {
+            & {
+                --slate-surface: color(display-p3 1 1 1 / 0.8);
+            }
+        }
+    }
+}

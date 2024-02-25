@@ -1,0 +1,23 @@
+{
+    "name": "@mendix/argentum-theme-radix",
+    "private": true,
+    "version": "0.1.0",
+    "license": "Apache-2.0",
+    "files": [
+        "public",
+        "theme",
+        "themesource"
+    ],
+    "scripts": {
+        "build": "tsx scripts/build.ts",
+        "prepare": "tsx scripts/prepare.ts"
+    },
+    "dependencies": {
+        "@radix-ui/colors": "^3.0.0",
+        "ansi-colors": "^4.1.3",
+        "cpy": "^11.0.0",
+        "prettier": "^2.8.8",
+        "shelljs": "^0.8.5",
+        "tsx": "^4.7.0"
+    }
+}

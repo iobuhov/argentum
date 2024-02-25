@@ -1,0 +1,12 @@
+/**
+ * Don't change this file. Any changes you make here will be lost the next time the module is upgraded. 
+ *
+ * To make your changes permanent, copy the properties you want override into 
+ * `theme/web/custom-colors-dark.css` and set the desired value.
+ */
+
+:is(.dark, .dark-theme),
+:is(.dark, .dark-theme)
+    :where(.argentum-theme-radium:not(.light, .light-theme)) {
+    --color-background: rgb(80, 80, 80);
+}

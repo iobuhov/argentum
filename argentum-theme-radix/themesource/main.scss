@@ -1,0 +1,11 @@
+/** Load defaults **/
+@use "cursor";
+@use "colors-light";
+@use "colors-dark";
+@use "colors/accent-cyan";
+@use "colors/gray-default";
+
+/** Load application overrides */
+@use "../../../theme/web/custom-variables";
+@use "../../../theme/web/custom-colors-light";
+@use "../../../theme/web/custom-colors-dark";

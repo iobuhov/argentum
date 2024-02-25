@@ -1,0 +1,30 @@
+:root {
+    --brown-9-contrast: white;
+}
+
+:root,
+.light,
+.light-theme {
+    --brown-surface: #fbf8f4cc;
+
+    @supports (color: color(display-p3 1 1 1)) {
+        @media (color-gamut: p3) {
+            & {
+                --brown-surface: color(display-p3 0.9843 0.9725 0.9569 / 0.8);
+            }
+        }
+    }
+}
+
+.dark,
+.dark-theme {
+    --brown-surface: #271f1b80;
+
+    @supports (color: color(display-p3 1 1 1)) {
+        @media (color-gamut: p3) {
+            & {
+                --brown-surface: color(display-p3 0.1412 0.1176 0.102 / 0.5);
+            }
+        }
+    }
+}

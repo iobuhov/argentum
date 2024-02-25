@@ -1,0 +1,30 @@
+:root {
+    --indigo-9-contrast: white;
+}
+
+:root,
+.light,
+.light-theme {
+    --indigo-surface: #f5f8ffcc;
+
+    @supports (color: color(display-p3 1 1 1)) {
+        @media (color-gamut: p3) {
+            & {
+                --indigo-surface: color(display-p3 0.9647 0.9725 0.9961 / 0.8);
+            }
+        }
+    }
+}
+
+.dark,
+.dark-theme {
+    --indigo-surface: #171d3b80;
+
+    @supports (color: color(display-p3 1 1 1)) {
+        @media (color-gamut: p3) {
+            & {
+                --indigo-surface: color(display-p3 0.0941 0.1098 0.2196 / 0.5);
+            }
+        }
+    }
+}

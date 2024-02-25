@@ -1,0 +1,9 @@
+/**
+ * This file is a safe place for your theme customizations.
+ */
+
+:is(.dark, .dark-theme),
+:is(.dark, .dark-theme)
+    :where(.argentum-theme-radium:not(.light, .light-theme)) {
+    --color-background: rgb(80, 80, 80);
+}

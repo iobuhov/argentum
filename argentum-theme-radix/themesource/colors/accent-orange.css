@@ -1,0 +1,30 @@
+:root {
+    --orange-9-contrast: white;
+}
+
+:root,
+.light,
+.light-theme {
+    --orange-surface: #fff5e9cc;
+
+    @supports (color: color(display-p3 1 1 1)) {
+        @media (color-gamut: p3) {
+            & {
+                --orange-surface: color(display-p3 0.9961 0.9608 0.9176 / 0.8);
+            }
+        }
+    }
+}
+
+.dark,
+.dark-theme {
+    --orange-surface: #271d1380;
+
+    @supports (color: color(display-p3 1 1 1)) {
+        @media (color-gamut: p3) {
+            & {
+                --orange-surface: color(display-p3 0.1412 0.1098 0.0706 / 0.5);
+            }
+        }
+    }
+}

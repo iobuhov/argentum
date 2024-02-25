@@ -1,0 +1,29 @@
+:root {
+    --yellow-9-contrast: #21201c; /* light mode sand 12 */
+}
+:root,
+.light,
+.light-theme {
+    --yellow-surface: #fefbe4cc;
+
+    @supports (color: color(display-p3 1 1 1)) {
+        @media (color-gamut: p3) {
+            & {
+                --yellow-surface: color(display-p3 0.9961 0.9922 0.902 / 0.8);
+            }
+        }
+    }
+}
+
+.dark,
+.dark-theme {
+    --yellow-surface: #231f1380;
+
+    @supports (color: color(display-p3 1 1 1)) {
+        @media (color-gamut: p3) {
+            & {
+                --yellow-surface: color(display-p3 0.1333 0.1176 0.0706 / 0.5);
+            }
+        }
+    }
+}

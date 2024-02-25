@@ -1,0 +1,34 @@
+/**
+ * Don't change this file. Any changes you make here will be lost the next time the module is upgraded. 
+ *
+ * To make your changes permanent, copy the properties you want override into 
+ * `theme/web/custom-variables.css` and set the desired value.
+ */
+
+:where(.argentum-theme-radium) {
+    /** Cursor */
+
+    /** @property Cursor style for buttons. */
+    --cursor-button: default;
+
+    /** @property Cursor style for checkboxes. */
+    --cursor-checkbox: default;
+
+    /** @property Cursor style for disabled controls. */
+    --cursor-disabled: not-allowed;
+
+    /** @property Cursor style for links. */
+    --cursor-link: pointer;
+
+    /** @property Cursor style for radio button. */
+    --cursor-radio: default;
+
+    /** @property Cursor style for hovered slider thumb. */
+    --cursor-slider-thumb: default;
+
+    /** @property Cursor style for slider thumb when pressed. */
+    --cursor-slider-thumb-active: default;
+
+    /** @property Cursor style for switch button. */
+    --cursor-switch: default;
+}

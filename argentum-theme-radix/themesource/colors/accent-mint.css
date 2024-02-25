@@ -1,0 +1,29 @@
+:root {
+    --mint-9-contrast: #1a211e; /* light mode sage 12 */
+}
+:root,
+.light,
+.light-theme {
+    --mint-surface: #effaf8cc;
+
+    @supports (color: color(display-p3 1 1 1)) {
+        @media (color-gamut: p3) {
+            & {
+                --mint-surface: color(display-p3 0.9451 0.9804 0.9725 / 0.8);
+            }
+        }
+    }
+}
+
+.dark,
+.dark-theme {
+    --mint-surface: #15272780;
+
+    @supports (color: color(display-p3 1 1 1)) {
+        @media (color-gamut: p3) {
+            & {
+                --mint-surface: color(display-p3 0.0941 0.149 0.1412 / 0.5);
+            }
+        }
+    }
+}

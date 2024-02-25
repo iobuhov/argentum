@@ -1,0 +1,13 @@
+/**
+ * Don't change this file. Any changes you make here will be lost the next time the module is upgraded. 
+ *
+ * To make your changes permanent, copy the properties you want override into 
+ * `theme/web/custom-colors-light.css` and set the desired value.
+ */
+:where(.argentum-theme-radium) {
+    --color-background: white;
+    --color-overlay: rgba(0, 0, 0, 0.7);
+    --color-panel-solid: white;
+    --color-panel-translucent: rgba(255, 255, 255, 0.8);
+    --color-surface: rgba(255, 255, 255, 0.9);
+}

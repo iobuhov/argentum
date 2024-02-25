@@ -1,0 +1,29 @@
+:root {
+    --red-9-contrast: white;
+}
+:root,
+.light,
+.light-theme {
+    --red-surface: #fff5f5cc;
+
+    @supports (color: color(display-p3 1 1 1)) {
+        @media (color-gamut: p3) {
+            & {
+                --red-surface: color(display-p3 0.9961 0.9647 0.9647 / 0.8);
+            }
+        }
+    }
+}
+
+.dark,
+.dark-theme {
+    --red-surface: #2f151780;
+
+    @supports (color: color(display-p3 1 1 1)) {
+        @media (color-gamut: p3) {
+            & {
+                --red-surface: color(display-p3 0.1647 0.0863 0.0863 / 0.5);
+            }
+        }
+    }
+}
