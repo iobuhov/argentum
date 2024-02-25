@@ -12,10 +12,9 @@ const preview: Preview = {
                 items: [
                     {
                         value: "light",
-                        icon: "circlehollow",
                         title: "Light mode"
                     },
-                    { value: "dark", icon: "circle", title: "Dark mode" }
+                    { value: "dark", title: "Dark mode" }
                 ],
                 //Change title based on selected value
                 dynamicTitle: true
@@ -40,6 +39,7 @@ const preview: Preview = {
                         <div
                             className={`auk-viewport argentum-theme-radix ${schema === "dark" ? "dark" : "light"}`}
                         >
+                            <div className="storybackdrop" />
                             <Story />
                         </div>
                     </div>

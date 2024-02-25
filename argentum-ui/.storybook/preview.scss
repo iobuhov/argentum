@@ -1,10 +1,17 @@
 @use "@mendix/argentum-theme-radix/themesource/_theme-radix";
 
 .sb-show-main.sb-main-padded {
-    all: unset;
+    margin: 0;
+    padding: 0;
 }
 
 :where(.sb-show-main, .sbdocs) .auk-viewport {
     height: unset;
     padding: 30px 20px;
+}
+.storybackdrop {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-color: var(--color-page-background);
 }
