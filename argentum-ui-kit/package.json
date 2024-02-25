@@ -7,6 +7,7 @@
         "dev": "tsx ./scripts/build.ts --watch"
     },
     "dependencies": {
+        "@mendix/argentum-theme-radix": "workspace:*",
         "@mendix/argentumuikit-checkbox-group": "workspace:*",
         "@types/glob-watcher": "^5.0.5",
         "@types/node": "^20.11.14",

@@ -3,7 +3,15 @@ import cpy, { type Options } from "cpy";
 import watch from "glob-watcher";
 import { relative } from "node:path";
 import * as sh from "shelljs";
-import { dirs, useWatch } from "./build.config";
+import {
+    setup,
+    cleanup,
+    project,
+    widgets,
+    uikitStyles,
+    themeModuleFiles,
+    stylesMain
+} from "./build.config";
 
 const log = (...args: any[]) => {
     console.log(...args);
@@ -27,60 +35,51 @@ async function main() {
     log(accent.bold("Project path:"));
     log();
 
-    log(dirs.project);
+    log(project.root);
     log();
 
-    sh.rm("-rf", dirs.themesource);
-    sh.rm("-rf", dirs.theme);
-    sh.rm("-rf", dirs.widgets);
+    cleanup();
+    setup();
 
-    sh.mkdir("-p", dirs.themesource);
-    sh.mkdir("-p", dirs.theme);
-    sh.mkdir("-p", dirs.widgets);
-
-    log(accent.bold("Assets:"));
+    log(accent.bold("UI Kit styles:"));
     log();
 
-    const assets = [["theme/settings.json", dirs.theme]];
+    await copy(stylesMain.src, stylesMain.dst);
+    await copy(uikitStyles.src, uikitStyles.dst);
+    // const assets = [["theme/settings.json", dirs.theme]];
 
-    for (const [src, dst] of assets) {
-        await copy(src, dst);
-    }
+    // for (const [src, dst] of assets) {
+    // }
     log();
 
     log(accent.bold("Widgets:"));
     log();
 
-    const widgets = [
-        ["node_modules/checkbox-web/dist/*/*.mpk", dirs.widgets],
-        [
-            "node_modules/@mendix/argentumuikit-checkbox-group/dist/*/*.mpk",
-            dirs.widgets
-        ],
-        ["project/__required-files__/widgets/*", dirs.widgets]
-    ];
-
-    for (const [src, dst] of widgets) {
+    for (const { src, dst } of widgets) {
         await copy(src, dst, { flat: true });
     }
     log();
 
-    log(accent.bold("Styles:"));
+    log(accent.bold("Theme files:"));
     log();
 
-    const argentumScss = [
-        "node_modules/@xxx/argentum-ui/dist/**/*.scss",
-        dirs.scss_argentum
-    ] as const;
-    const srcScss = ["src/styles/*.scss", dirs.themesource] as const;
-    await copy(...argentumScss);
-    await copy(...srcScss);
-
-    if (useWatch) {
-        log();
-        copyOnChange(...argentumScss);
-        copyOnChange(...srcScss);
+    for (const { src, dst } of themeModuleFiles) {
+        await copy(src, dst);
     }
+    log();
+    // const argentumScss = [
+    //     "node_modules/@xxx/argentum-ui/dist/**/*.scss",
+    //     dirs.scss_argentum
+    // ] as const;
+    // const srcScss = ["src/styles/*.scss", dirs.themesource] as const;
+    // await copy(...argentumScss);
+    // await copy(...srcScss);
+
+    // if (useWatch) {
+    //     log();
+    //     copyOnChange(...argentumScss);
+    //     copyOnChange(...srcScss);
+    // }
 }
 
 function copyOnChange(src: string, dst: string): void {
