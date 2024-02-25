@@ -290,6 +290,7 @@ function Checkbox(props: CheckboxProps, ref: ForwardedRef<HTMLLabelElement>) {
         // TODO: should data attrs go on the label or on the <input>? useCheckbox passes them to the input...
         ...props,
         defaultClassName: "ag-Checkbox",
+        className: `ag-Checkbox ${props.className ?? ""}`.trim(),
         values: {
             isSelected,
             isIndeterminate: props.isIndeterminate || false,

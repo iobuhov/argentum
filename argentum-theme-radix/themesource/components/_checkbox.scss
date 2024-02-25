@@ -1,52 +1,24 @@
-.ag-CheckboxIndicator {
-    aspect-ratio: 1 / 1;
-    width: 1.15rem;
-    height: 1.15rem;
-    border: 2px solid var(--border-color);
-    border-radius: 3px;
-    transition: all 200ms, outline 0ms, outline-offset 0ms;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    svg {
-        width: 0.9rem;
-        height: 0.9rem;
-        fill: none;
-        stroke: var(--checkmark-color);
-        stroke-width: 4px;
-        stroke-dasharray: 22px;
-        stroke-dashoffset: 66;
-        transition: all 200ms;
-        :where(rect) {
-            display: none;
-        }
-    }
-}
-
 .ag-Checkbox {
-    --focus-ring-color: rgb(0, 88, 229);
-    --selected-color: var(--highlight-background, rgb(0, 157, 255));
-    --selected-color-pressed: var(
-        --highlight-background-pressed,
-        rgb(0, 120, 176)
-    );
-    --checkmark-color: var(--highlight-foreground, rgb(255, 255, 255));
-    --text-color: black;
-    --border-color: black;
+    --focus-ring-color: var(--cyan-8);
+    --selected-color: var(--cyan-9);
+    --selected-color-pressed: var(--cyan-8);
+    --checkmark-color: white;
+    --border-color: var(--gray-a7);
+    --border-color-pressed: var(--gray-7);
 
     display: flex;
     align-items: center;
-    gap: 0.571rem;
+    gap: var(--space-2);
     font-size: 1.143rem;
     forced-color-adjust: none;
+    cursor: var(--cursor-checkbox);
 
     &[data-pressed] .ag-CheckboxIndicator {
-        border-color: var(--border-color-pressed, gray);
+        border-color: var(--border-color-pressed);
     }
 
     &[data-focus-visible] .ag-CheckboxIndicator {
-        outline: 2px solid var(--focus-ring-color, rgb(12, 117, 222));
+        outline: 2px solid var(--focus-ring-color);
         outline-offset: 2px;
     }
 
@@ -81,7 +53,47 @@
     }
 }
 
-/** States  */
-.ag-fd-row-reverse {
-    flex-direction: row-reverse;
+.ag-CheckboxIndicator {
+    --animation-t: 250ms;
+    aspect-ratio: 1 / 1;
+    width: var(--checkbox-size, 1.15rem);
+    height: var(--checkbox-size, 1.15rem);
+    border: 2px solid var(--gray-6);
+    transition: all var(--animation-t), outline 0ms, outline-offset 0ms;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        width: var(--checkbox-indicator-size, 0.9rem);
+        height: var(--checkbox-indicator-size, 0.9rem);
+        fill: none;
+        stroke: var(--checkmark-color);
+        stroke-width: 3px;
+        stroke-dasharray: 22px;
+        stroke-dashoffset: 66;
+        transition: all var(--animation-t);
+        :where(rect) {
+            display: none;
+        }
+    }
+}
+
+// Sizes
+.ag-Checkbox {
+    &:where(.size-1) .ag-CheckboxIndicator {
+        --checkbox-size: calc(var(--space-4) * 0.875);
+        --checkbox-indicator-size: calc(9px * var(--scaling));
+        border-radius: calc(var(--radius-1) * 0.875);
+    }
+    &:where(.size-2) .ag-CheckboxIndicator {
+        --checkbox-size: var(--space-4);
+        --checkbox-indicator-size: calc(10px * var(--scaling));
+        border-radius: var(--radius-1);
+    }
+    &:where(.size-3) .ag-CheckboxIndicator {
+        --checkbox-size: calc(var(--space-4) * 1.25);
+        --checkbox-indicator-size: calc(12px * var(--scaling));
+        border-radius: calc(var(--radius-1) * 1.25);
+    }
 }

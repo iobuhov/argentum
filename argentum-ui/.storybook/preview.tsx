@@ -37,7 +37,7 @@ const preview: Preview = {
                 <div className="mx-page">
                     <div className="mx-placeholder">
                         <div
-                            className={`auk-viewport argentum-theme-radix ${schema === "dark" ? "dark" : "light"}`}
+                            className={`auk-viewport auk-radius-small argentum-theme-radix ${schema === "dark" ? "dark" : "light"}`}
                         >
                             <div className="storybackdrop" />
                             <Story />

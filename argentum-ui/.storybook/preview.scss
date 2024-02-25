@@ -8,10 +8,23 @@
 :where(.sb-show-main, .sbdocs) .auk-viewport {
     height: unset;
     padding: 30px 20px;
+    overflow: auto;
 }
+
 .storybackdrop {
     position: fixed;
     inset: 0;
     z-index: -1;
     background-color: var(--color-page-background);
+}
+
+.variants {
+    text-align: left;
+    td,
+    th {
+        padding: var(--space-2);
+    }
+    th {
+        font-size: 16px;
+    }
 }
