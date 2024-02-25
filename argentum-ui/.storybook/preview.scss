@@ -1,0 +1,10 @@
+@use "@mendix/argentum-theme-radix/themesource/_theme-radix";
+
+.sb-show-main.sb-main-padded {
+    all: unset;
+}
+
+:where(.sb-show-main, .sbdocs) .auk-viewport {
+    height: unset;
+    padding: 30px 20px;
+}
