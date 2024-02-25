@@ -47,10 +47,10 @@ Example: `.auk-Checkbox`
 
 ### Mendix modules
 
-| Marketplace           | Name in Studio Pro    | Project (mpr name)    | Description                               |
-| --------------------- | --------------------- | --------------------- | ----------------------------------------- |
-| Argentum theme Radian | Argentum_theme_Radian | Argentum_theme_Radian | Theme files and Design tokens for UI Kit. |
-| Argentum UI Kit       | Argentum_UI_Kit       | Argentum_UI_Kit       | Widgets and base SCSS.                    |
+| Marketplace          | Name in Studio Pro   | Project (mpr name)   | Description                               |
+| -------------------- | -------------------- | -------------------- | ----------------------------------------- |
+| Argentum theme Radix | Argentum_theme_Radix | Argentum_theme_Radix | Theme files and Design tokens for UI Kit. |
+| Argentum UI Kit      | Argentum_UI_Kit      | Argentum_UI_Kit      | Widgets and base SCSS.                    |
 
 ### Starter apps
 
