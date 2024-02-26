@@ -2,3 +2,4 @@ packages:
     - "argentum-*"
     - "packages/*"
     - "widgets/*"
+    - "automation/*"
