@@ -38,7 +38,7 @@ export type CopyOptions = SrcOptions & { printLimit?: number };
 export async function copy(
     pattern: Globs,
     dst: string,
-    projectPath?: string,
+    projectPath?: string | null,
     options?: CopyOptions
 ): Promise<void> {
     options = { printLimit: PRINT_LIMIT, ...options };

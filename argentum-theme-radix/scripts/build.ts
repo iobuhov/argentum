@@ -1,29 +1,47 @@
 import { project } from "./config";
-import { log, accent, sh, copy } from "./common";
+import {
+    clean,
+    printStep,
+    type CopyOptions,
+    glob,
+    copy
+} from "@mendix/automation-utils";
 
 main();
 
 async function main() {
-    log(accent.bold("Project path:"));
-    log();
-    log(project.path);
-    log();
+    await cleanup();
+    await copyAssets();
+    await copyTheme();
+    await copyThemesource();
+}
 
-    sh.rm("-rf", project.themesource);
-    sh.rm("-rf", project.theme);
-    sh.mkdir("-p", project.themesource);
-    sh.mkdir("-p", project.theme);
+async function cleanup() {
+    printStep("Remove directories");
+    return clean(project.cleanupDirs);
+}
 
-    log(accent.bold("Assets:"));
-    log();
+async function copyAssets(options?: CopyOptions) {
+    printStep("Copy public assets");
+    await copy(
+        glob("public/**/*"),
+        project.publicAssets,
+        project.projectPath,
+        options
+    );
+}
 
-    await copy("theme/*", project.theme, { flat: true });
-    await copy("public/*", project.publicAssets);
-    await copy("LICENSE", project.themesource);
-    log();
+async function copyTheme(options?: CopyOptions) {
+    printStep("Copy theme files");
+    await copy(glob("theme/**/*"), project.theme, project.projectPath, options);
+}
 
-    log(accent.bold("Styles:"));
-    log();
-
-    await copy("themesource/**", project.themesource);
+async function copyThemesource(options?: CopyOptions) {
+    printStep("Copy themesource files");
+    await copy(
+        glob(["LICENSE", "themesource/**/*"]),
+        project.module.main.themesource,
+        project.projectPath,
+        options
+    );
 }

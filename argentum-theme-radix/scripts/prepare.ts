@@ -1,26 +1,34 @@
-import { pkg } from "./config";
-import { copy, sh, log } from "./common";
+import { join } from "node:path";
+import { copy, sh, log, glob, printStep } from "@mendix/automation-utils";
 import designProps from "../design-properties/main";
+import { packageRootPath } from "./config";
 
 main();
+
 async function main(): Promise<void> {
-    log("Move @radix-ui/colors to themesource");
-    log();
+    createDesignProps();
+    await moveRadixColors();
+}
 
-    sh.mkdir("-p", pkg.radixui_colors.dst);
-    await copy(
-        [
-            `${pkg.radixui_colors.src}/LICENSE`,
-            `${pkg.radixui_colors.src}/*.css`
-        ],
-        pkg.radixui_colors.dst
+function createDesignProps() {
+    printStep("Create design-properties.json");
+    const designPropsDst = join(
+        packageRootPath,
+        "themesource",
+        "design-properties.json"
     );
-    log();
+    new sh.ShellString(JSON.stringify(designProps, null, 2)).to(designPropsDst);
+}
 
-    log("Create design-properties.json");
-    log();
-
-    new sh.ShellString(JSON.stringify(designProps, null, 2)).to(
-        pkg.designPropsDst
+async function moveRadixColors() {
+    printStep("Move @radix-ui/colors to themesource");
+    await copy(
+        glob([
+            "node_modules/@radix-ui/colors/LICENSE",
+            "node_modules/@radix-ui/colors/*.css"
+        ]),
+        join(packageRootPath, "themesource", "@radix-ui", "colors"),
+        null,
+        { printLimit: 5 }
     );
 }

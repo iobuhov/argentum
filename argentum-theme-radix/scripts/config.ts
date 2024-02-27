@@ -1,28 +1,24 @@
 import { join, resolve } from "node:path";
-import { sh } from "./common";
+import { sh } from "@mendix/automation-utils";
 
 export const packageRootPath = sh.pwd().toString();
 
 export const projectPath =
     sh.env.MX_PROJECT_PATH ?? resolve(join(packageRootPath, "project"));
 
+const dir = (...args: string[]) => join(projectPath, ...args);
+
 const moduleName = "argentum_theme_radix";
 
 export const project = {
-    path: projectPath,
-    publicAssets: join(projectPath, "themesource", moduleName, "public"),
-    themesource: join(projectPath, "themesource", moduleName, "web"),
-    theme: join(projectPath, "theme", "web")
-};
-
-export const pkg = {
-    radixui_colors: {
-        src: join(packageRootPath, "node_modules", "@radix-ui", "colors"),
-        dst: join(packageRootPath, "themesource", "@radix-ui", "colors")
+    projectPath,
+    theme: dir("theme", "web"),
+    publicAssets: dir("theme", "public"),
+    widgets: dir("widgets"),
+    module: {
+        main: {
+            themesource: dir("themesource", moduleName, "web")
+        }
     },
-    designPropsDst: join(
-        packageRootPath,
-        "themesource",
-        "design-properties.json"
-    )
+    cleanupDirs: [dir("theme"), dir("themesource"), dir("widgets")]
 };
