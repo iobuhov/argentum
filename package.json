@@ -4,5 +4,10 @@
     "engines": {
         "node": ">=18.17.0",
         "pnpm": "~8.15.1"
+    },
+    "pnpm": {
+        "overrides": {
+            "chokidar": "^3.6.0"
+        }
     }
 }
