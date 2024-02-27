@@ -34,7 +34,7 @@
     }
 }
 
-.auk-accent-color.auk-bronze {
+.auk-accent-color:where(.auk-bronze) {
     --color-surface-accent: var(--bronze-surface);
 
     --accent-1: var(--bronze-1);

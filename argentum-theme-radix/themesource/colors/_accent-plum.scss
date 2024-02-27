@@ -33,7 +33,7 @@
     }
 }
 
-.auk-accent-color.auk-plum {
+.auk-accent-color:where(.auk-plum) {
     --color-surface-accent: var(--plum-surface);
 
     --accent-1: var(--plum-1);

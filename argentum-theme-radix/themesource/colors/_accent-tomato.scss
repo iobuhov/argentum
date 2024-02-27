@@ -33,7 +33,7 @@
     }
 }
 
-.auk-accent-color.auk-tomato {
+.auk-accent-color:where(.auk-tomato) {
     --color-surface-accent: var(--tomato-surface);
 
     --accent-1: var(--tomato-1);

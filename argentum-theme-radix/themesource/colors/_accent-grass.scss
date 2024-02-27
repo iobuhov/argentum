@@ -34,7 +34,7 @@
     }
 }
 
-.auk-accent-color.auk-grass {
+.auk-accent-color:where(.auk-grass) {
     --color-surface-accent: var(--grass-surface);
 
     --accent-1: var(--grass-1);

@@ -33,7 +33,7 @@
     }
 }
 
-.auk-accent-color.auk-mint {
+.auk-accent-color:where(.auk-mint) {
     --color-surface-accent: var(--mint-surface);
 
     --accent-1: var(--mint-1);

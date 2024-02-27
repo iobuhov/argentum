@@ -34,7 +34,7 @@
     }
 }
 
-.auk-accent-color.auk-crimson {
+.auk-accent-color:where(.auk-crimson) {
     --color-surface-accent: var(--crimson-surface);
 
     --accent-1: var(--crimson-1);

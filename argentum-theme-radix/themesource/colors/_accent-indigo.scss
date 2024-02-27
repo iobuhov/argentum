@@ -34,7 +34,7 @@
     }
 }
 
-.auk-accent-color.auk-indigo {
+.auk-accent-color:where(.auk-indigo) {
     --color-surface-accent: var(--indigo-surface);
 
     --accent-1: var(--indigo-1);

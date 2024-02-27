@@ -6,9 +6,17 @@
 }
 
 :where(.sb-show-main, .sbdocs) .auk-viewport {
-    height: unset;
+    // height: unset;
     padding: 30px 20px;
     overflow: auto;
+}
+
+.sbdocs-preview .auk-viewport {
+    height: unset;
+}
+
+html {
+    height: 100%;
 }
 
 .storybackdrop {

@@ -34,7 +34,7 @@
     }
 }
 
-.auk-accent-color.auk-pink {
+.auk-accent-color:where(.auk-pink) {
     --color-surface-accent: var(--pink-surface);
 
     --accent-1: var(--pink-1);

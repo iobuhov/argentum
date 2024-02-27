@@ -34,7 +34,7 @@
     }
 }
 
-.auk-accent-color.auk-lime {
+.auk-accent-color:where(.auk-lime) {
     --color-surface-accent: var(--lime-surface);
 
     --accent-1: var(--lime-1);

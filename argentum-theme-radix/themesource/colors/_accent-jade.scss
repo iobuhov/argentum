@@ -34,7 +34,7 @@
     }
 }
 
-.auk-accent-color.auk-jade {
+.auk-accent-color:where(.auk-jade) {
     --color-surface-accent: var(--jade-surface);
 
     --accent-1: var(--jade-1);

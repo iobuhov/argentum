@@ -34,7 +34,7 @@
     }
 }
 
-.auk-accent-color.auk-ruby {
+.auk-accent-color:where(.auk-ruby) {
     --color-surface-accent: var(--ruby-surface);
 
     --accent-1: var(--ruby-1);

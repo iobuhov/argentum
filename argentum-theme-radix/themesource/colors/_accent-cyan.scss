@@ -34,7 +34,7 @@
     }
 }
 
-.auk-accent-color.auk-cyan {
+.auk-accent-color:where(.auk-cyan) {
     --color-surface-accent: var(--cyan-surface);
 
     --accent-1: var(--cyan-1);

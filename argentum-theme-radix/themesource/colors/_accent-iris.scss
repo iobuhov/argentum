@@ -34,7 +34,7 @@
     }
 }
 
-.auk-accent-color.auk-iris {
+.auk-accent-color:where(.auk-iris) {
     --color-surface-accent: var(--iris-surface);
 
     --accent-1: var(--iris-1);

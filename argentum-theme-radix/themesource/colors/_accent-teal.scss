@@ -33,7 +33,7 @@
     }
 }
 
-.auk-accent-color.auk-teal {
+.auk-accent-color:where(.auk-teal) {
     --color-surface-accent: var(--teal-surface);
 
     --accent-1: var(--teal-1);

@@ -33,7 +33,7 @@
     }
 }
 
-.auk-accent-color.auk-sky {
+.auk-accent-color:where(.auk-sky) {
     --color-surface-accent: var(--sky-surface);
 
     --accent-1: var(--sky-1);

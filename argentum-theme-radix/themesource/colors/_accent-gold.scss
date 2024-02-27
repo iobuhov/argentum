@@ -34,7 +34,7 @@
     }
 }
 
-.auk-accent-color.auk-gold {
+.auk-accent-color:where(.auk-gold) {
     --color-surface-accent: var(--gold-surface);
 
     --accent-1: var(--gold-1);
