@@ -1,7 +1,7 @@
 import { createElement, ReactElement } from "react";
 
 export function CheckboxIndicator({
-    className = "ag-CheckboxIndicator"
+    className = "auk-CheckboxIndicator"
 }: {
     className?: string;
 }): ReactElement {

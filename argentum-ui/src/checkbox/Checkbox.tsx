@@ -289,9 +289,8 @@ function Checkbox(props: CheckboxProps, ref: ForwardedRef<HTMLLabelElement>) {
     let renderProps = useRenderProps({
         // TODO: should data attrs go on the label or on the <input>? useCheckbox passes them to the input...
         ...props,
-        defaultClassName: "ag-Checkbox",
-        className:
-            `ag-Checkbox ${typeof props.className === "string" ? props.className : ""}`.trim(),
+        defaultClassName: "auk-Checkbox",
+        className: props.className,
         values: {
             isSelected,
             isIndeterminate: props.isIndeterminate || false,
@@ -314,7 +313,7 @@ function Checkbox(props: CheckboxProps, ref: ForwardedRef<HTMLLabelElement>) {
             {...mergeProps(DOMProps, labelProps, hoverProps, renderProps)}
             ref={ref}
             slot={props.slot || undefined}
-            data-selected={isSelected || undefined}
+            data-ra-selected={isSelected || undefined}
             data-indeterminate={props.isIndeterminate || undefined}
             data-pressed={isPressed || undefined}
             data-hovered={isHovered || undefined}

@@ -35,7 +35,7 @@
 }
 
 .argentum-theme-radix {
-    &:where(.auk-gray-color-olive) {
+    &:where(.auk-gray-color.auk-olive) {
         --gray-surface: var(--olive-surface);
 
         --gray-1: var(--olive-1);
