@@ -76,7 +76,6 @@ const preview: Preview = {
                     { value: "violet", title: "violet" },
                     { value: "yellow", title: "yellow" }
                 ],
-                //Change title based on selected value
                 dynamicTitle: true
             }
         }
@@ -98,7 +97,7 @@ const preview: Preview = {
                 <div className="mx-page">
                     <div className="mx-placeholder">
                         <div
-                            className={`auk-viewport auk-radius auk-r-small auk-accent-color auk-${accent} argentum-theme-radix ${
+                            className={`auk-viewport auk-accent-color auk-${accent} argentum-theme-radix ${
                                 schema === "dark" ? "dark" : "light"
                             }`}
                         >
