@@ -28,31 +28,35 @@ export const Sizes: Story = {
     render() {
         return (
             <table className="variants">
-                <tr>
-                    <th>Size 1</th>
-                    <th>Size 2</th>
-                    <th>Size 3</th>
-                </tr>
-                <tr>
-                    <td>
-                        <Checkbox className="size-1">
-                            <CheckboxIndicator />
-                            Awesome
-                        </Checkbox>
-                    </td>
-                    <td>
-                        <Checkbox className="size-2">
-                            <CheckboxIndicator />
-                            Awesome
-                        </Checkbox>
-                    </td>
-                    <td>
-                        <Checkbox className="size-3">
-                            <CheckboxIndicator />
-                            Awesome
-                        </Checkbox>
-                    </td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Size 1</th>
+                        <th>Size 2</th>
+                        <th>Size 3</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <Checkbox className="auk-Checkbox auk-size-1">
+                                <CheckboxIndicator />
+                                Awesome
+                            </Checkbox>
+                        </td>
+                        <td>
+                            <Checkbox className="auk-Checkbox auk-size-2">
+                                <CheckboxIndicator />
+                                Awesome
+                            </Checkbox>
+                        </td>
+                        <td>
+                            <Checkbox className="auk-Checkbox auk-size-3">
+                                <CheckboxIndicator />
+                                Awesome
+                            </Checkbox>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         );
     }
@@ -65,21 +69,27 @@ export const Radius: Story = {
         const radius = ["none", "small", "medium", "large", "full"];
         return (
             <table className="variants">
-                <tr>
-                    {radius.map((s) => (
-                        <th>{cap(s)}</th>
-                    ))}
-                </tr>
-                <tr>
-                    {radius.map((r) => (
-                        <td>
-                            <Checkbox className={`size-3 auk-radius-${r}`}>
-                                <CheckboxIndicator />
-                                Awesome
-                            </Checkbox>
-                        </td>
-                    ))}
-                </tr>
+                <thead>
+                    <tr>
+                        {radius.map((s, i) => (
+                            <th key={i}>{cap(s)}</th>
+                        ))}
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        {radius.map((r, i) => (
+                            <td key={i}>
+                                <Checkbox
+                                    className={`auk-Checkbox auk-size-3 auk-radius auk-r-${r}`}
+                                >
+                                    <CheckboxIndicator />
+                                    Awesome
+                                </Checkbox>
+                            </td>
+                        ))}
+                    </tr>
+                </tbody>
             </table>
         );
     }

@@ -3,6 +3,24 @@ import { createElement } from "react";
 import type { Preview } from "@storybook/react";
 import "./preview.scss";
 
+const colorDot = (color) => (
+    <span
+        style={{
+            background: color,
+            display: "block",
+            width: "1em",
+            height: "1em",
+            borderRadius: 9999
+        }}
+    />
+);
+const grayColors = [
+    { value: "mauve", title: "mauve" },
+    { value: "olive", title: "olive" },
+    { value: "sage", title: "sage" },
+    { value: "sand", title: "sand" },
+    { value: "slate", title: "slate" }
+];
 const preview: Preview = {
     globalTypes: {
         colorSchema: {
@@ -15,6 +33,48 @@ const preview: Preview = {
                         title: "Light mode"
                     },
                     { value: "dark", title: "Dark mode" }
+                ],
+                //Change title based on selected value
+                dynamicTitle: true
+            }
+        },
+        accent: {
+            description: "Global accent color",
+            defaultValue: "indigo",
+            toolbar: {
+                items: [
+                    {
+                        value: "amber",
+                        title: "amber"
+                    },
+                    { value: "blue", title: "blue" },
+                    { value: "bronze", title: "bronze" },
+                    { value: "brown", title: "brown" },
+                    { value: "crimson", title: "crimson" },
+                    { value: "gold", title: "gold" },
+                    { value: "grass", title: "grass" },
+                    { value: "gray", title: "gray" },
+                    { value: "green", title: "green" },
+                    { value: "indigo", title: "indigo" },
+                    { value: "iris", title: "iris" },
+                    {
+                        value: "jade",
+                        title: "jade",
+                        right: colorDot("#29a383")
+                    },
+                    { value: "lime", title: "lime" },
+                    { value: "mint", title: "mint" },
+                    { value: "orange", title: "orange" },
+                    { value: "pink", title: "pink" },
+                    { value: "plum", title: "plum" },
+                    { value: "purple", title: "purple" },
+                    { value: "red", title: "red" },
+                    { value: "ruby", title: "ruby" },
+                    { value: "sky", title: "sky" },
+                    { value: "teal", title: "teal" },
+                    { value: "tomato", title: "tomato" },
+                    { value: "violet", title: "violet" },
+                    { value: "yellow", title: "yellow" }
                 ],
                 //Change title based on selected value
                 dynamicTitle: true
@@ -33,11 +93,12 @@ const preview: Preview = {
     decorators: [
         (Story, context) => {
             const schema = context.globals.colorSchema as string;
+            const accent = context.globals.accent as string;
             return (
                 <div className="mx-page">
                     <div className="mx-placeholder">
                         <div
-                            className={`auk-viewport auk-radius auk-r-small auk-accent-color auk-ruby argentum-theme-radix ${
+                            className={`auk-viewport auk-radius auk-r-small auk-accent-color auk-${accent} argentum-theme-radix ${
                                 schema === "dark" ? "dark" : "light"
                             }`}
                         >

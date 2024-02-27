@@ -89,16 +89,17 @@
 /// Sizes
 
 .auk-Checkbox {
-    &:where(.auk-size-1) .auk-CheckboxIndicator {
-        --checkbox-size: calc(var(--space-4) * 0.875);
-        --checkbox-indicator-size: calc(9px * var(--scaling));
-        border-radius: calc(var(--radius-1) * 0.875);
-    }
-
+    // Size 2 - default
     .auk-CheckboxIndicator {
         --checkbox-size: var(--space-4);
         --checkbox-indicator-size: calc(10px * var(--scaling));
         border-radius: var(--radius-1);
+    }
+
+    &:where(.auk-size-1) .auk-CheckboxIndicator {
+        --checkbox-size: calc(var(--space-4) * 0.875);
+        --checkbox-indicator-size: calc(9px * var(--scaling));
+        border-radius: calc(var(--radius-1) * 0.875);
     }
 
     &:where(.auk-size-3) .auk-CheckboxIndicator {
