@@ -1,3 +1,8 @@
+@use "../@radix-ui/colors/jade";
+@use "../@radix-ui/colors/jade-dark";
+@use "../@radix-ui/colors/jade-alpha";
+@use "../@radix-ui/colors/jade-dark-alpha";
+
 :root {
     --jade-9-contrast: white;
 }

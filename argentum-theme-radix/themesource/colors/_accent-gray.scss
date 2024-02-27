@@ -1,3 +1,8 @@
+@use "../@radix-ui/colors/gray";
+@use "../@radix-ui/colors/gray-dark";
+@use "../@radix-ui/colors/gray-alpha";
+@use "../@radix-ui/colors/gray-dark-alpha";
+
 :root {
     --gray-9-contrast: white;
 }
