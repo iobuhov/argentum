@@ -14,6 +14,7 @@ const colorDot = (color) => (
         }}
     />
 );
+
 const grayColors = [
     { value: "mauve", title: "mauve" },
     { value: "olive", title: "olive" },
@@ -21,6 +22,7 @@ const grayColors = [
     { value: "sand", title: "sand" },
     { value: "slate", title: "slate" }
 ];
+
 const preview: Preview = {
     globalTypes: {
         colorSchema: {
@@ -40,41 +42,41 @@ const preview: Preview = {
         },
         accent: {
             description: "Global accent color",
-            defaultValue: "indigo",
+            defaultValue: "ruby",
             toolbar: {
                 items: [
-                    {
-                        value: "amber",
-                        title: "amber"
-                    },
+                    // {
+                    //     title: "amber",
+                    //     value: "amber"
+                    // },
                     { value: "blue", title: "blue" },
-                    { value: "bronze", title: "bronze" },
-                    { value: "brown", title: "brown" },
-                    { value: "crimson", title: "crimson" },
-                    { value: "gold", title: "gold" },
-                    { value: "grass", title: "grass" },
+                    // { value: "bronze", title: "bronze" },
+                    // { value: "brown", title: "brown" },
+                    // { value: "crimson", title: "crimson" },
+                    // { value: "gold", title: "gold" },
+                    // { value: "grass", title: "grass" },
                     { value: "gray", title: "gray" },
                     { value: "green", title: "green" },
                     { value: "indigo", title: "indigo" },
-                    { value: "iris", title: "iris" },
-                    {
-                        value: "jade",
-                        title: "jade",
-                        right: colorDot("#29a383")
-                    },
-                    { value: "lime", title: "lime" },
-                    { value: "mint", title: "mint" },
-                    { value: "orange", title: "orange" },
-                    { value: "pink", title: "pink" },
-                    { value: "plum", title: "plum" },
-                    { value: "purple", title: "purple" },
-                    { value: "red", title: "red" },
-                    { value: "ruby", title: "ruby" },
-                    { value: "sky", title: "sky" },
-                    { value: "teal", title: "teal" },
-                    { value: "tomato", title: "tomato" },
-                    { value: "violet", title: "violet" },
-                    { value: "yellow", title: "yellow" }
+                    // { value: "iris", title: "iris" },
+                    // {
+                    //     value: "jade",
+                    //     title: "jade",
+                    //     right: colorDot("#29a383")
+                    // }
+                    // { value: "lime", title: "lime" },
+                    // { value: "mint", title: "mint" },
+                    // { value: "orange", title: "orange" },
+                    // { value: "pink", title: "pink" },
+                    // { value: "plum", title: "plum" },
+                    // { value: "purple", title: "purple" },
+                    // { value: "red", title: "red" },
+                    { value: "ruby", title: "ruby" }
+                    // { value: "sky", title: "sky" },
+                    // { value: "teal", title: "teal" },
+                    // { value: "tomato", title: "tomato" },
+                    // { value: "violet", title: "violet" },
+                    // { value: "yellow", title: "yellow" }
                 ],
                 dynamicTitle: true
             }

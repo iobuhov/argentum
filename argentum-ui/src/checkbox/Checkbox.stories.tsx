@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     render() {
         return (
-            <Checkbox>
+            <Checkbox className={"auk-Checkbox auk-variant-surface"}>
                 <CheckboxIndicator />
                 Awesome
             </Checkbox>
@@ -38,19 +38,19 @@ export const Sizes: Story = {
                 <tbody>
                     <tr>
                         <td>
-                            <Checkbox className="auk-Checkbox auk-size-1">
+                            <Checkbox className="auk-Checkbox auk-variant-surface auk-size-1">
                                 <CheckboxIndicator />
                                 Awesome
                             </Checkbox>
                         </td>
                         <td>
-                            <Checkbox className="auk-Checkbox auk-size-2">
+                            <Checkbox className="auk-Checkbox auk-variant-surface auk-size-2">
                                 <CheckboxIndicator />
                                 Awesome
                             </Checkbox>
                         </td>
                         <td>
-                            <Checkbox className="auk-Checkbox auk-size-3">
+                            <Checkbox className="auk-Checkbox auk-variant-surface auk-size-3">
                                 <CheckboxIndicator />
                                 Awesome
                             </Checkbox>
@@ -81,7 +81,41 @@ export const Radius: Story = {
                         {radius.map((r, i) => (
                             <td key={i}>
                                 <Checkbox
-                                    className={`auk-Checkbox auk-size-3 auk-radius auk-r-${r}`}
+                                    className={`auk-Checkbox auk-variant-surface auk-size-3 auk-radius auk-r-${r}`}
+                                >
+                                    <CheckboxIndicator />
+                                    Awesome
+                                </Checkbox>
+                            </td>
+                        ))}
+                    </tr>
+                </tbody>
+            </table>
+        );
+    }
+};
+
+export const Variants: Story = {
+    render() {
+        const cap = (str: string) =>
+            str[0].toLocaleUpperCase() + str.substring(1);
+        const variants = ["surface", "surface", "classic", "soft"];
+        return (
+            <table className="variants">
+                <thead>
+                    <tr>
+                        {variants.map((s, i) => (
+                            <th key={i}>{cap(s)}</th>
+                        ))}
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        {variants.map((_v, i) => (
+                            <td key={i}>
+                                <Checkbox
+                                    className={`auk-Checkbox auk-size-2 auk-radius auk-r-medium auk-variant-surface`}
+                                    isDisabled={i > 1}
                                 >
                                     <CheckboxIndicator />
                                     Awesome

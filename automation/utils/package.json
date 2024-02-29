@@ -18,6 +18,7 @@
         "del": "^7.1.0",
         "easy-transform-stream": "^1.0.1",
         "gulp": "^4.0.2",
+        "gulp-rename": "^2.0.0",
         "last-run": "^2.0.0",
         "shelljs": "^0.8.5",
         "stream-exhaust": "^1.0.2"

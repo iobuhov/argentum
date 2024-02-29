@@ -1,9 +1,9 @@
 .auk-Checkbox {
     --focus-ring-color: var(--focus-8, currentColor);
     --selected-color: var(--accent-9);
-    --selected-color-pressed: var(--accent-7);
-    --checkmark-color: white;
-    --border-color: var(--accent-a7);
+    --selected-color-pressed: var(--accent-8);
+    --checkmark-color: currentColor;
+    --border-color: var(--gray-a7);
     --border-color-pressed: var(--gray-8);
 
     position: relative;
@@ -65,7 +65,7 @@
     aspect-ratio: 1 / 1;
     width: var(--checkbox-size, 1.15rem);
     height: var(--checkbox-size, 1.15rem);
-    border: 2px solid var(--border-color);
+    border: 1px solid var(--border-color);
     transition: all var(--animation-t), outline 0ms, outline-offset 0ms;
     display: flex;
     align-items: center;
@@ -113,11 +113,38 @@
 
 // Surface
 
-.auk-Checkbox.auk-variant-surface {
-    --focus-ring-color: var(--focus-8);
+.auk-Checkbox:where(.auk-variant-surface) {
+    --border-color: var(--gray-a7);
+    --border-color-pressed: var(--gray-a8);
+
     --selected-color: var(--accent-9);
-    --selected-color-pressed: var(--accent-7);
-    --checkmark-color: white;
-    --border-color: var(--accent-a7);
-    --border-color-pressed: var(--gray-8);
+    --selected-color-pressed: var(--accent-8);
+
+    --checkmark-color: var(--accent-9-contrast);
+
+    &:where(.auk-high-contrast) {
+        --selected-color: var(--accent-12);
+        --checkmark-color: var(--accent-1);
+    }
+
+    &:where([data-disabled]) {
+        --border-color: var(--gray-a6);
+        --border-color-pressed: var(--gray-a6);
+        --checkmark-color: var(--gray-a8);
+        --selected-color: var(--gray-a6);
+        --selected-color-pressed: var(--gray-a6);
+
+        .auk-CheckboxIndicator {
+            background-color: var(--gray-a3);
+        }
+    }
+
+    //
+    // &:where([data-disabled]) {
+    //     &:where([data-ra-selected]) .auk-CheckboxIndicator {
+    //         border-color: transparent;
+    //     }
+    // }
 }
+
+// Classic

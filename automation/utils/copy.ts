@@ -5,6 +5,7 @@ import * as Vinyl from "vinyl";
 import { Globs } from "./glob";
 import { accent, em, log, printSub, shadow } from "./print";
 import exhaustively from "stream-exhaust";
+import rename from "gulp-rename";
 
 function lineAcc(n) {
     let skipped = 0;
@@ -28,7 +29,7 @@ function lineAcc(n) {
 
 const PRINT_LIMIT = process.env.DEBUG ? Infinity : 10;
 
-export type CopyOptions = SrcOptions & { printLimit?: number };
+export type CopyOptions = SrcOptions & { printLimit?: number; flat?: boolean };
 
 /**
  * Copy files. This is just wrapper around gulp.src/gulp.dst.
@@ -70,7 +71,11 @@ export async function copy(
                 return file;
             });
 
-        src(pattern, options)
+        let stream = src(pattern, options);
+
+        stream = options.flat ? stream.pipe(rename({ dirname: "" })) : stream;
+
+        stream
             .pipe(dest(dst))
             // After dest we can print copied fils.
             // Bea aware, we transform file base - don't use any .pipe after
@@ -80,7 +85,7 @@ export async function copy(
             .on("error", rej)
             .on("finish", () => {
                 buffer.print();
-                log(em(`${accent(n.toString())} file(s) copied`));
+                printSub(em(`${accent(n.toString())} file(s) copied`));
                 res();
             });
     });

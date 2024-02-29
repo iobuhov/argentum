@@ -69,9 +69,14 @@ async function cleanup() {
 async function copyWidgets() {
     printStep("Copy widgets");
     await copy(
-        glob("./project/__required-files__/widgets/*"),
+        glob([
+            "./project/__required-files__/widgets/*",
+            "node_modules/checkbox-web/dist/*/*.mpk",
+            "node_modules/@mendix/argentumuikit-checkbox-group/dist/*/*.mpk"
+        ]),
         project.widgets,
-        project.projectPath
+        project.projectPath,
+        { flat: true }
     );
 }
 
